@@ -5,15 +5,29 @@ export default function Session() {
         <h2>Selecione o horário</h2>
       </div>
       <div className="container-movie">
-      <h1>Horario</h1>
-        <h1>Horario</h1>
-        <h1>Horario</h1>
-        <h1>Horario</h1>
-        <h1>Horario</h1>
-        <h1>Horario</h1>
+        <div className="session-infos">  
+          <h1 className="session-day">Quinta-feira - 24/06/2021</h1>
+          <div className="session-time-box">
+            <div className="session-time">15:00</div>
+            <div className="session-time">15:00</div>
+          </div>
+        </div>
+        <div className="session-infos">  
+          <h1 className="session-day">Quinta-feira - 24/06/2021</h1>
+          <div className="session-time-box">
+            <div className="session-time">15:00</div>
+            <div className="session-time">15:00</div>
+          </div>
+        </div>
+        <div className="session-infos">  
+          <h1 className="session-day">Quinta-feira - 24/06/2021</h1>
+          <div className="session-time-box">
+            <div className="session-time">15:00</div>
+            <div className="session-time">15:00</div>
+          </div>
+        </div>
       </div>
       <div className="container-selected-movie">
-        
         <div className="selected-movie">
           <img
             className="imgMovieSelected"

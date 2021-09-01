@@ -70,7 +70,7 @@ body {
   height: 193px;
 }
 
-.container-movie {
+.container-movie, .container-seats {
   width: 374px;
   height: 680px; /* alterar para auto depois */
   background: rgb(219, 219, 219);
@@ -90,13 +90,35 @@ body {
   align-items: center;
 }
 
+.image-info {
+  height: 100%;
+  width: 23%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-info {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 77%;
+}
+
+.title-info-seats {
+  height: 100%;
+  width: 77%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .selected-movie {
   width: 64px;
   height: 89px;
   background: #ffffff;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 2px;
-  margin-left: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -108,7 +130,7 @@ body {
 }
 
 .movie-title {
-  font-size: 26px;
+  font-size: 21px;
   line-height: 30px;
   color: #fa4098;
   padding-left: 20px;
@@ -147,4 +169,130 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+
+.seats {
+  width: 374px;
+  height: auto;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: absolute;
+}
+
+.seat {
+  width: 26px;
+  height: 26px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3px;
+  background-color: #f7539f;
+}
+
+.index {
+  top: 270px;
+  position: absolute;
+  width: 374px;
+  height: 65px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.index-item {
+  width: 100px;
+  height: 100%;
+}
+
+.index-item-top {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.index-item-bottom {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.index-item-colorgreen {
+  width: 25px;
+  height: 25px;
+  background: #8DD7CF;
+  border: 1px solid #1AAE9E;
+  border-radius: 17px;
+}
+
+.index-item-available {
+  width: 25px;
+  height: 25px;
+  background: #f7539f;
+  border: 1px solid #fa4098;
+  border-radius: 17px;
+}
+
+.index-item-coloryellow {
+  width: 25px;
+  height: 25px;
+  background: #FBE192;
+  border: 1px solid #F7C52B;
+  border-radius: 17px;
+}
+
+.infos {
+  width:374px;
+  height: 330px;
+  top: 300px;
+  position: absolute;
+  margin-top: 40px;
+  margin-bottom: 20px; 
+}
+
+.name, 
+.cpf {
+  width: 327px;
+  height: 90px;
+  font-size: 18px;
+  line-height: 21px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 20px 0 0 20px;
+}
+
+.box-text-name,
+.box-text-cpf {
+  width: 327px;
+  height: 51px;
+  background: #FFFFFF;
+  border: 1px solid #D5D5D5;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+
+.get-seats {
+  font-family: "Suez One", serif;
+  position: absolute;
+  width: 225px;
+  height: 42px;
+  background: #fa4098;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.04em;
+  top: 240px;
+  left: 73px;
 }

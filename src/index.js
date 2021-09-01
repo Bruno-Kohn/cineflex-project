@@ -1,9 +1,13 @@
 import ReactDOM from "react-dom";
+import Home from "./Home.js";
+import Top from "./Top.js";
 
 function App() {
-
   return (
-    <h1>Hello</h1>
+    <>
+      <Top />
+      <Home />
+    </>
   );
 }
 

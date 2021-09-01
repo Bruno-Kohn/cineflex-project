@@ -70,7 +70,8 @@ body {
   height: 193px;
 }
 
-.container-movie, .container-seats {
+.container-movie,
+.container-seats {
   width: 374px;
   height: 680px; /* alterar para auto depois */
   background: rgb(219, 219, 219);
@@ -138,8 +139,8 @@ body {
 }
 
 .session-infos {
-    padding: 5px 0;
-    margin-bottom: 15px;
+  padding: 5px 0;
+  margin-bottom: 15px;
 }
 
 .session-day {
@@ -156,12 +157,12 @@ body {
 }
 
 .session-time-box {
-    padding: 20px;
-    display: flex;
+  padding: 20px;
+  display: flex;
 }
 
 .session-time {
-    margin-right: 8px;
+  margin-right: 8px;
   width: 83px;
   height: 43px;
   background: #fa4098;
@@ -170,7 +171,6 @@ body {
   align-items: center;
   justify-content: center;
 }
-
 
 .seats {
   width: 374px;
@@ -226,8 +226,8 @@ body {
 .index-item-colorgreen {
   width: 25px;
   height: 25px;
-  background: #8DD7CF;
-  border: 1px solid #1AAE9E;
+  background: #8dd7cf;
+  border: 1px solid #1aae9e;
   border-radius: 17px;
 }
 
@@ -242,21 +242,21 @@ body {
 .index-item-coloryellow {
   width: 25px;
   height: 25px;
-  background: #FBE192;
-  border: 1px solid #F7C52B;
+  background: #fbe192;
+  border: 1px solid #f7c52b;
   border-radius: 17px;
 }
 
 .infos {
-  width:374px;
+  width: 374px;
   height: 330px;
   top: 300px;
   position: absolute;
   margin-top: 40px;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
 
-.name, 
+.name,
 .cpf {
   width: 327px;
   height: 90px;
@@ -272,8 +272,8 @@ body {
 .box-text-cpf {
   width: 327px;
   height: 51px;
-  background: #FFFFFF;
-  border: 1px solid #D5D5D5;
+  background: #ffffff;
+  border: 1px solid #d5d5d5;
   box-sizing: border-box;
   border-radius: 5px;
   padding-left: 10px;
@@ -296,3 +296,93 @@ body {
   top: 240px;
   left: 73px;
 }
+
+.message-success {
+  width: 374px;
+  height: 110px;
+  position: fixed;
+  top: 67px;
+  left: 0px;
+  font-size: 24px;
+  line-height: 28px;
+  background: rgb(219, 219, 219);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.04em;
+  color: black;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.container-success {
+  width: 374px;
+  height: calc(100vh - (67px + 110px)); 
+  top: calc(67px + 110px);
+  position: relative;
+  background: rgb(219, 219, 219);
+}
+
+.movie-data,
+.tickets-data,
+.client-data {
+  width: 374px;
+  height: auto;
+  margin-bottom: 40px;
+  padding-left: 20px;
+}
+
+.title h2 {
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: 0.04em;
+  font-weight: bold;
+}
+
+.title {
+  height: auto;
+  font-size: 22px;
+}
+
+.movie-success,
+.seat-tickets,
+.name-customer,
+.cpf-customer,
+.session-success,
+.tickets-ordered {
+  height: auto;
+  margin: 5px 0;
+}
+
+.movie-success h2,
+.session-success h2,
+.seat-tickets h2,
+.name-customer h2,
+.cpf-customer h2,
+.session-success h2,
+.tickets-ordered h2 {
+  font-size: 22px;
+  line-height: 26px;
+  letter-spacing: 0.04em;
+}
+
+.back-to-home {
+  margin-left: calc((374px - 225px) / 2);
+  margin-right: calc((374px - 225px) / 2);
+  width: 225px;
+  height: 42px;
+  background: #fa4098;
+  border-radius: 8px;
+  border: none;
+}
+
+.back-to-home h2 {
+  font-family: "Suez One", serif;
+  font-size: 16px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.04em;
+}
+

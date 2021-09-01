@@ -3,6 +3,7 @@ import Home from "./Home.js";
 import Top from "./Top.js";
 import Session from "./Session.js";
 import Seats from "./Seats.js";
+import Success from "./Success.js";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -18,6 +19,9 @@ function App() {
         </Route>
         <Route path="/seats" exact>
           <Seats />
+        </Route>
+        <Route path="/success" exact>
+          <Success />
         </Route>
       </Switch>
     </BrowserRouter>

@@ -43,7 +43,7 @@ body {
 
 .container {
   width: 375px;
-  height: auto;
+  min-height: 100vh;
   background: rgb(219, 219, 219);
   top: calc(67px + 110px);
   position: relative;
@@ -73,7 +73,7 @@ body {
 .container-movie,
 .container-seats {
   width: 375px;
-  height: 680px; /* alterar para auto depois */
+  min-height: calc(100vh - (67px + 110px));  /* alterar para auto depois */
   background: rgb(219, 219, 219);
   top: calc(67px + 110px);
   position: relative;
@@ -317,7 +317,7 @@ body {
 
 .container-success {
   width: 375px;
-  height: calc(100vh - (67px + 110px)); 
+  min-height: calc(100vh - (67px + 110px)); 
   top: calc(67px + 110px);
   position: relative;
   background: rgb(219, 219, 219);

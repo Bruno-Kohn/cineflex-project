@@ -63,3 +63,8 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.imgMovies {
+    width: 129px;
+    height: 193px;
+}

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Session() {
   return (
     <>
@@ -8,22 +10,34 @@ export default function Session() {
         <div className="session-infos">
           <h1 className="session-day">Quinta-feira - 24/06/2021</h1>
           <div className="session-time-box">
-            <div className="session-time">15:00</div>
-            <div className="session-time">15:00</div>
+            <Link to="/seats">
+              <div className="session-time">15:00</div>
+            </Link>
+            <Link to="/seats">
+              <div className="session-time">15:00</div>
+            </Link>
           </div>
         </div>
         <div className="session-infos">
           <h1 className="session-day">Quinta-feira - 24/06/2021</h1>
           <div className="session-time-box">
-            <div className="session-time">15:00</div>
-            <div className="session-time">15:00</div>
+            <Link to="/seats">
+              <div className="session-time">15:00</div>
+            </Link>
+            <Link to="/seats">
+              <div className="session-time">15:00</div>
+            </Link>
           </div>
         </div>
         <div className="session-infos">
           <h1 className="session-day">Quinta-feira - 24/06/2021</h1>
           <div className="session-time-box">
-            <div className="session-time">15:00</div>
-            <div className="session-time">15:00</div>
+            <Link to="/seats">
+              <div className="session-time">15:00</div>
+            </Link>
+            <Link to="/seats">
+              <div className="session-time">15:00</div>
+            </Link>
           </div>
         </div>
       </div>

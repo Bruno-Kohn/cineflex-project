@@ -24,7 +24,7 @@ body {
 
 .message {
   font-family: "Suez One", serif;
-  width: 374px;
+  width: 375px;
   height: 110px;
   position: fixed;
   top: 67px;
@@ -42,7 +42,7 @@ body {
 }
 
 .container {
-  width: 374px;
+  width: 375px;
   height: auto;
   background: rgb(219, 219, 219);
   top: calc(67px + 110px);
@@ -72,7 +72,7 @@ body {
 
 .container-movie,
 .container-seats {
-  width: 374px;
+  width: 375px;
   height: 680px; /* alterar para auto depois */
   background: rgb(219, 219, 219);
   top: calc(67px + 110px);
@@ -173,7 +173,7 @@ body {
 }
 
 .seats {
-  width: 374px;
+  width: 375px;
   height: auto;
   padding: 20px;
   display: flex;
@@ -196,7 +196,7 @@ body {
 .index {
   top: 270px;
   position: absolute;
-  width: 374px;
+  width: 375px;
   height: 65px;
   display: flex;
   justify-content: space-around;
@@ -248,7 +248,7 @@ body {
 }
 
 .infos {
-  width: 374px;
+  width: 375px;
   height: 330px;
   top: 300px;
   position: absolute;
@@ -298,7 +298,7 @@ body {
 }
 
 .message-success {
-  width: 374px;
+  width: 375px;
   height: 110px;
   position: fixed;
   top: 67px;
@@ -316,7 +316,7 @@ body {
 }
 
 .container-success {
-  width: 374px;
+  width: 375px;
   height: calc(100vh - (67px + 110px)); 
   top: calc(67px + 110px);
   position: relative;
@@ -326,7 +326,7 @@ body {
 .movie-data,
 .tickets-data,
 .client-data {
-  width: 374px;
+  width: 375px;
   height: auto;
   margin-bottom: 40px;
   padding-left: 20px;
@@ -367,8 +367,8 @@ body {
 }
 
 .back-to-home {
-  margin-left: calc((374px - 225px) / 2);
-  margin-right: calc((374px - 225px) / 2);
+  margin-left: calc((375px - 225px) / 2);
+  margin-right: calc((375px - 225px) / 2);
   width: 225px;
   height: 42px;
   background: #fa4098;

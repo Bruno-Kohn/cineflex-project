@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Seats() {
   return (
     <>
@@ -112,7 +114,9 @@ export default function Seats() {
               className="box-text-cpf"
             ></input>
           </div>
-          <button className="get-seats">Reservar Assentos</button>
+          <Link to="/success">
+            <button className="get-seats">Reservar Assentos</button>
+          </Link>
         </div>
       </div>
       <div className="container-selected-movie">

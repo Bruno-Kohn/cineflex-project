@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Success() {
   return (
     <>
@@ -13,9 +15,7 @@ export default function Success() {
             <h2>Coringa</h2>
           </div>
           <div className="session-success">
-            <h2>
-            Quinta-feira - 15:00
-            </h2>
+            <h2>Quinta-feira - 15:00</h2>
           </div>
         </div>
         <div className="tickets-data">
@@ -39,9 +39,11 @@ export default function Success() {
             <h2>CPF: 123.456.789-00</h2>
           </div>
         </div>
+        <Link to="/">
           <button className="back-to-home">
             <h2>Voltar para home</h2>
           </button>
+        </Link>
       </div>
     </>
   );

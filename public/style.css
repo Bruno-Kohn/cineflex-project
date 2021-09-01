@@ -23,6 +23,7 @@ body {
 }
 
 .message {
+    font-family: 'Rampart One', cursive;
     width: 374px;
     height: 110px;
     position: fixed;
@@ -67,4 +68,49 @@ body {
 .imgMovies {
     width: 129px;
     height: 193px;
+}
+
+.container-movie {
+    width: 374px;
+    height: 1000px; /* alterar para auto depois */
+    background: rgb(219,219,219);
+    top: calc(67px + 110px);
+    position: relative;
+    margin-bottom: 265px;
+}
+
+.container-selected-movie {
+    position: fixed;
+    width: 375px;
+    height: 117px;
+    left: 0px;
+    bottom: 0px;
+    background: black;
+    display: flex;
+    align-items: center;
+}
+
+.selected-movie {
+    width: 64px;
+    height: 89px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    margin-left: 10px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.imgMovieSelected {
+    width: 48px;
+    height: 72px;
+}
+
+.movie-title {
+    font-size: 26px;
+    line-height: 30px;
+    color: #fa4098;
+    padding-left: 20px;
+    font-family: 'Suez One', serif;
 }

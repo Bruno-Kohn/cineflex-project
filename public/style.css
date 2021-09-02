@@ -195,6 +195,21 @@ body {
   background-color: #f7539f;
 }
 
+.available {
+  background: #f7539f;
+  border: 1px solid #fa4098;
+}
+
+.selected {
+  background: #8DD7CF;
+  border: 1px solid #1AAE9E;
+}
+
+.unavailable {
+  background: #FBE192;
+  border: 1px solid #F7C52B;
+}
+
 .index {
   top: 220px;
   position: absolute;

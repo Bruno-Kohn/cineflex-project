@@ -1,16 +1,13 @@
 import { Link, useParams } from "react-router-dom";
-import { useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function Seats() {
   const { idSession } = useParams();
-  const [assentos, setAssentos] = useState([]);
+  const [seats, setSeats] = useState([]);
+  const [chooseSeat, setChooseSeat] = useState([]);
   console.log(idSession);
-  // const seats = [
-  //   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-  //   22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
-  //   41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
-  // ];
+  console.log(seats);
 
   useEffect(
     () => {
@@ -20,12 +17,24 @@ export default function Seats() {
 
       request.then((response) => {
         console.log(response.data);
-        setAssentos(response.data.seats);
+        setSeats(response.data.seats);
       });
     },
     //eslint-disable-next-line
     []
   );
+
+  function toSelectSeat(e, id) {
+    const choiceSeat = seats.map((seat) => {
+      if (seat.isAvailable && seat.id === id) {
+        seat.isSelected = !seat.isSelected;
+      }
+    });
+    if (e.target.classList.contains("unavailable")) {
+      alert("Assento indisponível");
+    }
+    setChooseSeat({ ...choiceSeat });
+  }
 
   return (
     <>
@@ -34,10 +43,20 @@ export default function Seats() {
       </div>
       <div className="container-seats">
         <ul className="seats">
-          {assentos === undefined
+          {seats === undefined
             ? "...Loading"
-            : assentos.map((seat, index) => (
-                <li className={seat.isAvailable ? "seat" : "seat index-item-coloryellow"} key={index}>
+            : seats.map((seat, index) => (
+                <li
+                  className={`seat ${
+                    seat.isSelected
+                      ? "selected"
+                      : seat.isAvailable
+                      ? "available"
+                      : "unavailable"
+                  }`}
+                  onClick={(e) => toSelectSeat(e, seat.id)}
+                  key={index}
+                >
                   {seat.name}
                 </li>
               ))}

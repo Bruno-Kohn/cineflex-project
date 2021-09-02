@@ -13,7 +13,7 @@ export default function Session() {
   useEffect(
     () => {
       const request = axios.get(
-        `https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies/${idMovie}/showtimes`
+        `https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/movies/${idMovie}/showtimes`
       );
 
       request.then((response) => {

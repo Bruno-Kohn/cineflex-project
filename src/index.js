@@ -14,10 +14,10 @@ function App() {
         <Route path="/" exact>
           <Home />
         </Route>
-        <Route path="/session/:movieId" exact>
+        <Route path="/session/:idMovie" exact>
           <Session />
         </Route>
-        <Route path="/seats" exact>
+        <Route path="/seats/:idSession" exact>
           <Seats />
         </Route>
         <Route path="/success" exact>

@@ -1,11 +1,10 @@
-import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function Session() {
-  const { movieId } = useParams();
-  console.log(movieId);
+  const { idMovie } = useParams();
+  console.log(idMovie);
 
   const [movieTime, setMovieTime] = useState([]);
   const [movieInfos, setMovieInfos] = useState("");
@@ -14,7 +13,7 @@ export default function Session() {
   useEffect(
     () => {
       const request = axios.get(
-        `https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies/${movieId}/showtimes`
+        `https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies/${idMovie}/showtimes`
       );
 
       request.then((response) => {
@@ -42,7 +41,7 @@ export default function Session() {
                 </h1>
                 <div className="session-time-box">
                   {info.showtimes.map((time, index) => (
-                    <Link to="/seats" key={index}>
+                    <Link to={`/seats/${time.id}`} key={index}>
                       <div className="session-time">{time.name}</div>
                     </Link>
                   ))}

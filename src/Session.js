@@ -1,60 +1,67 @@
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Session() {
-  const movieTime = [
-    {
-      diaSemana: "Quinta-feira",
-      diaMes: "24/06/2021",
-      hora1: "15:00",
-      hora2: "17:00",
+  const { movieId } = useParams();
+  console.log(movieId);
+
+  const [movieTime, setMovieTime] = useState([]);
+  const [movieInfos, setMovieInfos] = useState("");
+  console.log(movieTime);
+
+  useEffect(
+    () => {
+      const request = axios.get(
+        `https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies/${movieId}/showtimes`
+      );
+
+      request.then((response) => {
+        console.log(response.data);
+        setMovieTime(response.data.days);
+        setMovieInfos(response.data);
+      });
     },
-    {
-      diaSemana: "Sexta-feira",
-      diaMes: "25/06/2021",
-      hora1: "21:00",
-      hora2: "22:45",
-    },
-    {
-      diaSemana: "Domingo",
-      diaMes: "27/06/2021",
-      hora1: "13:45",
-      hora2: "19:30",
-    },
-  ];
+    //eslint-disable-next-line
+    []
+  );
+
   return (
     <>
       <div className="message">
         <h2>Selecione o horário</h2>
       </div>
       <div className="container-movie">
-        {movieTime.map((info, index) => (
-          <div className="session-infos" key={index}>
-            <h1 className="session-day">
-              {info.diaSemana} - {info.diaMes}
-            </h1>
-            <div className="session-time-box">
-              <Link to="/seats">
-                <div className="session-time">{info.hora1}</div>
-              </Link>
-              <Link to="/seats">
-                <div className="session-time">{info.hora2}</div>
-              </Link>
-            </div>
-          </div>
-        ))}
+        {movieTime === undefined
+          ? "...Loading"
+          : movieTime.map((info, index) => (
+              <div className="session-infos" key={index}>
+                <h1 className="session-day">
+                  {info.weekday} - {info.date}
+                </h1>
+                <div className="session-time-box">
+                  {info.showtimes.map((time, index) => (
+                    <Link to="/seats" key={index}>
+                      <div className="session-time">{time.name}</div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ))}
       </div>
       <div className="container-selected-movie">
         <div className="image-info">
           <div className="selected-movie">
             <img
               className="imgMovieSelected"
-              src="https://cdn.olivre.com.br/wp-content/uploads/2019/09/20190912-y5i92dqjh3m31.jpg"
+              src={movieInfos.posterURL}
               alt=""
             />
           </div>
         </div>
         <div className="title-info">
-          <span className="movie-title">Coringa</span>
+          <span className="movie-title">{movieInfos.title}</span>
         </div>
       </div>
     </>

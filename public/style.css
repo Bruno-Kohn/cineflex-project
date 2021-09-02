@@ -79,7 +79,7 @@ body {
   background: rgb(219, 219, 219);
   top: calc(67px + 110px);
   position: relative;
-  margin-bottom: 265px;
+  padding-bottom: 117px;
 }
 
 .container-selected-movie {

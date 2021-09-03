@@ -1,13 +1,20 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom"; //recolocar o link apos o teste
 import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function Seats() {
   const { idSession } = useParams();
+  const [session, setSession] = useState();
   const [seats, setSeats] = useState([]);
   const [chooseSeat, setChooseSeat] = useState([]);
+  const [name, setName] = useState("");
+  const [cpf, setCpf] = useState("");
   console.log(idSession);
   console.log(seats);
+  console.log(chooseSeat);
+  console.log(name);
+  console.log(cpf);
+  console.log(session);
 
   useEffect(
     () => {
@@ -17,6 +24,7 @@ export default function Seats() {
 
       request.then((response) => {
         console.log(response.data);
+        setSession(response.data);
         setSeats(response.data.seats);
       });
     },
@@ -34,6 +42,21 @@ export default function Seats() {
       alert("Assento indisponível");
     }
     setChooseSeat({ ...choiceSeat });
+  }
+
+  //axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/seats/book-many", {});
+
+  function toOrderSeats() {
+    if(name !== "" && cpf !== "" && cpf.length === 11) {
+      const objeto = {
+      ids: seats.filter((i) => i.isSelected).map((i) => i.id),
+      name: name,
+      cpf: cpf}
+      console.log(objeto);
+    }    else {
+      alert("Dados incorretos");
+    }
+    
   }
 
   return (
@@ -87,6 +110,8 @@ export default function Seats() {
             <input
               placeholder="Digite seu nome..."
               className="box-text-name"
+              onChange={(e) => setName(e.target.value)}
+              value={name}
             ></input>
           </div>
           <div className="cpf">
@@ -94,11 +119,13 @@ export default function Seats() {
             <input
               placeholder="Digite seu cpf..."
               className="box-text-cpf"
+              onChange={(e) => setCpf(e.target.value)}
+              value={cpf}
             ></input>
           </div>
-          <Link to="/success">
-            <button className="get-seats">Reservar Assentos</button>
-          </Link>
+          {/*<Link to="/success">*/}
+            <button className="get-seats" onClick={() => toOrderSeats()}>Reservar Assentos</button>
+          {/*</Link>*/}
         </div>
       </div>
       <div className="container-selected-movie">
@@ -106,14 +133,19 @@ export default function Seats() {
           <div className="selected-movie">
             <img
               className="imgMovieSelected"
-              src="https://cdn.olivre.com.br/wp-content/uploads/2019/09/20190912-y5i92dqjh3m31.jpg"
+              src={session === undefined ? "" : session.movie.posterURL}
               alt=""
             />
           </div>
         </div>
         <div className="title-info-seats">
-          <p className="movie-title">Coringa</p>
-          <p className="movie-title">Quinta-feira - 15:00</p>
+          <p className="movie-title">
+            {session === undefined ? "" : session.movie.title}
+          </p>
+          <p className="movie-title">
+            {session === undefined ? "" : session.day.weekday} -{" "}
+            {session === undefined ? "" : session.day.date}
+          </p>
         </div>
       </div>
     </>

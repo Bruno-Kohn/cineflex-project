@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"; //recolocar o link apos o teste
+import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -19,7 +19,7 @@ export default function Seats() {
   useEffect(
     () => {
       const request = axios.get(
-        `https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/showtimes/${idSession}/seats`
+        `https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/showtimes/${idSession}/seats`
       );
 
       request.then((response) => {
@@ -44,19 +44,25 @@ export default function Seats() {
     setChooseSeat({ ...choiceSeat });
   }
 
-  //axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/seats/book-many", {});
-
   function toOrderSeats() {
-    if(name !== "" && cpf !== "" && cpf.length === 11) {
+    if (name !== "" && cpf !== "" && cpf.length === 11) {
       const objeto = {
-      ids: seats.filter((i) => i.isSelected).map((i) => i.id),
-      name: name,
-      cpf: cpf}
+        ids: seats.filter((i) => i.isSelected).map((i) => i.id),
+        name: name,
+        cpf: cpf,
+      };
+      axios.post(
+        "https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/seats/book-many",
+        {
+          ids: seats.filter((i) => i.isSelected).map((i) => i.id),
+          name: name,
+          cpf: cpf,
+        }
+      );
       console.log(objeto);
-    }    else {
+    } else {
       alert("Dados incorretos");
     }
-    
   }
 
   return (
@@ -123,9 +129,17 @@ export default function Seats() {
               value={cpf}
             ></input>
           </div>
-          {/*<Link to="/success">*/}
-            <button className="get-seats" onClick={() => toOrderSeats()}>Reservar Assentos</button>
-          {/*</Link>*/}
+          <Link
+            to={
+              name !== "" && cpf !== "" && cpf.length === 11
+                ? "/success"
+                : `/seats/${idSession}`
+            }
+          >
+            <button className="get-seats" onClick={() => toOrderSeats()}>
+              Reservar Assentos
+            </button>
+          </Link>
         </div>
       </div>
       <div className="container-selected-movie">

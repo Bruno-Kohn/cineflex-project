@@ -15,7 +15,7 @@ export default function Success() {
             <h2>Coringa</h2>
           </div>
           <div className="session-success">
-            <h2>Quinta-feira - 15:00</h2>
+            <h2>24/06/2021 - 15:00</h2>
           </div>
         </div>
         <div className="tickets-data">

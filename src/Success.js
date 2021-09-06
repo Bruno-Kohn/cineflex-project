@@ -1,6 +1,22 @@
 import { Link } from "react-router-dom";
 
-export default function Success() {
+export default function Success({ infos }) {
+  const cpfFormat = infos.clientCPF;
+  const cpf =
+    cpfFormat[0] +
+    cpfFormat[1] +
+    cpfFormat[2] +
+    "." +
+    cpfFormat[3] +
+    cpfFormat[4] +
+    cpfFormat[5] +
+    "." +
+    cpfFormat[6] +
+    cpfFormat[7] +
+    cpfFormat[8] +
+    "-" +
+    cpfFormat[9] +
+    cpfFormat[10];
   return (
     <>
       <div className="message-success">
@@ -12,10 +28,12 @@ export default function Success() {
             <h2>Filme e sessão</h2>
           </div>
           <div className="movie-success">
-            <h2>Coringa</h2>
+            <h2>{infos.movieTitle}</h2>
           </div>
           <div className="session-success">
-            <h2>24/06/2021 - 15:00</h2>
+            <h2>
+              {infos.movieDay} - {infos.movieSession}
+            </h2>
           </div>
         </div>
         <div className="tickets-data">
@@ -23,9 +41,9 @@ export default function Success() {
             <h2>Ingressos</h2>
           </div>
           <div className="tickets-ordered">
-            <h2>Assento 15</h2>
-            <h2>Assento 16</h2>
-            <h2>Assento 17</h2>
+            {infos.seats.map((i) => (
+              <h2>Assento {i.name}</h2>
+            ))}
           </div>
         </div>
         <div className="client-data">
@@ -33,10 +51,10 @@ export default function Success() {
             <h2>Comprador</h2>
           </div>
           <div className="name-customer">
-            <h2>Nome: Bruno Kohn</h2>
+            <h2>Nome: {infos.clientName}</h2>
           </div>
           <div className="cpf-customer">
-            <h2>CPF: 123.456.789-00</h2>
+            <h2>CPF: {cpf}</h2>
           </div>
         </div>
         <Link to="/">

@@ -5,8 +5,11 @@ import Session from "./Session.js";
 import Seats from "./Seats.js";
 import Success from "./Success.js";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { useState } from "react";
 
 function App() {
+  const [infos, setInfos] = useState({});
+
   return (
     <BrowserRouter>
       <Top />
@@ -18,10 +21,10 @@ function App() {
           <Session />
         </Route>
         <Route path="/seats/:idSession" exact>
-          <Seats />
+          <Seats setInfos={setInfos} />
         </Route>
         <Route path="/success" exact>
-          <Success />
+          <Success infos={infos} />
         </Route>
       </Switch>
     </BrowserRouter>

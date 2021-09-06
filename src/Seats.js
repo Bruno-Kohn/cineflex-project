@@ -2,13 +2,14 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-export default function Seats() {
+export default function Seats({setInfos}) {
   const { idSession } = useParams();
   const [session, setSession] = useState();
   const [seats, setSeats] = useState([]);
   const [chooseSeat, setChooseSeat] = useState([]);
   const [name, setName] = useState("");
   const [cpf, setCpf] = useState("");
+  const totalInfos = {};
   console.log(idSession);
   console.log(seats);
   console.log(chooseSeat);
@@ -51,6 +52,13 @@ export default function Seats() {
         name: name,
         cpf: cpf,
       };
+      totalInfos.clientName = name;
+      totalInfos.clientCPF = cpf;
+      totalInfos.movieTitle = session.movie.title;
+      totalInfos.movieDay = session.day.date;
+      totalInfos.movieSession = session.name;
+      totalInfos.seats = seats.filter((i) => i.isSelected);
+      setInfos({...totalInfos});
       axios.post(
         "https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/seats/book-many",
         {
